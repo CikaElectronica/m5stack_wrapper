@@ -1,0 +1,36 @@
+author: mongoose-os
+type: lib
+description: M5stack wrapper
+version: 1.0
+
+sources:
+  - src
+
+includes:
+  - include
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/boards
+  - origin: https://github.com/mongoose-os-libs/i2c
+  - origin: https://github.com/mongoose-os-libs/ili9341-spi
+  - origin: https://github.com/mongoose-os-libs/neopixel
+  - origin: https://github.com/mongoose-os-libs/spi
+
+config_schema:
+  - ["i2c.enable", true]
+  - ["i2c.sda_gpio", 21]
+  - ["i2c.scl_gpio", 22]
+  # M5-Core display
+  - ["spi.enable", true]
+  - ["spi.cs0_gpio", 14]
+  - ["ili9341.spi_freq", 40000000]
+  - ["ili9341.dc_pin", 27]
+  - ["ili9341.rst_pin", 33]
+  - ["ili9341.width", 240]
+  - ["ili9341.height", 320]
+
+tags:
+  - c
+  - m5stack
+
+manifest_version: 2017-09-29
